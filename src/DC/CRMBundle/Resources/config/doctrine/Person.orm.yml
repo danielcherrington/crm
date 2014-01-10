@@ -1,0 +1,9 @@
+DC\CRMBundle\Entity\Person:
+    type: mappedSuperclass
+    fields:
+        firstName:
+            type: string
+            length: 255
+        lastName:
+            type: string
+            length: 255

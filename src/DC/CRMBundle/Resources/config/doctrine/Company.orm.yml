@@ -1,0 +1,18 @@
+DC\CRMBundle\Entity\Company:
+    type: mappedSuperclass
+    fields:
+        phoneOffice:
+            type: string
+            length: 255
+        website:
+            type: string
+            length: 255
+        description:
+            type: string
+            length: 255
+        industry:
+            type: string
+            length: 255
+        emailAddress:
+            type: string
+            length: 255

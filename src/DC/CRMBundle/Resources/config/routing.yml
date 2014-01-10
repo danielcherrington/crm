@@ -1,0 +1,9 @@
+_default:
+    pattern:  /
+    defaults: { _controller: DCCRMBundle:Default:index }
+DCCRMBundle_account:
+        resource: "@DCCRMBundle/Resources/config/routing/account.yml"
+        prefix:   /accounts
+DCCRMBundle_contact:
+        resource: "@DCCRMBundle/Resources/config/routing/contact.yml"
+        prefix:   /contacts

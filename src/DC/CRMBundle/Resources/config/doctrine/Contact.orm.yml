@@ -1,0 +1,10 @@
+DC\CRMBundle\Entity\Contact:
+    type: entity
+    table: contacts
+    manyToOne:
+        account:
+            targetEntity: Account
+            inversedBy: contacts
+            joinColumn:
+                name: account_id
+                referencedColumnName: id

@@ -1,0 +1,3 @@
+DC\CRMBundle\Entity\Account:
+    type: entity
+    table: accounts

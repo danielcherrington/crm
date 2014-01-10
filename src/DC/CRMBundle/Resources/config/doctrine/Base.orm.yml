@@ -1,0 +1,12 @@
+DC\CRMBundle\Entity\Base:
+    type: mappedSuperclass
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 255
+            nullable: false
