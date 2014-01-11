@@ -1,9 +1,11 @@
-{% extends "TwigBundle::layout.html.twig" %}
-
 {% block head %}
     <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
     <link rel="stylesheet" href="{{ asset('bundles/acmedemo/css/demo.css') }}" />
     <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome.css') }}">
+  <!--[if IE 7]>
+  <link rel="stylesheet" href="{{ asset('css/fontawesome_IE7.css') }}">
+  <![endif]-->
 
     <!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
     {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
@@ -15,31 +17,28 @@
 
 {% block title 'Demo Bundle' %}
 
-{% block body %}
-<div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            {{ knp_menu_render('DCCRMBundle:Builder:mainMenu', { 'style': 'navbar','template': 'DCCRMBundle:Menu:knp_menu.html.twig' }) }}
-        </div>
-    </div>
+
+
+<body>
+
+   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      
+            <a class="navbar-brand" href="#">DC CRM</a>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                {{ knp_menu_render('DCCRMBundle:Builder:mainMenu', { 'style': 'navbar', 'template': 'DCCRMBundle:Menu:knp_menu.html.twig' }) }}
+                {{ knp_menu_render('DCCRMBundle:Builder:userMenu', { 'style': 'navbar', 'template': 'DCCRMBundle:Menu:knp_menu.html.twig' }) }}
+            </div>  
+    </nav>
+    
+    
     {% for flashMessage in app.session.flashbag.get('notice') %}
         <div class="flash-message">
             <em>Notice</em>: {{ flashMessage }}
         </div>
     {% endfor %}
 
-    {% block content_header %}
-
-        <ul id="menu">
-            {% block content_header_more %}
-                <li><a href="{{ path('_demo') }}">Demo Home</a></li>
-            {% endblock %}
-        </ul>
-
-        <div style="clear: both"></div>
-    {% endblock %}
-
     <div class="block">
-        {% block content %}{% endblock %}
+        {% block body %}{% endblock %}
     </div>
 
     {% if code is defined %}
@@ -48,4 +47,4 @@
             <div class="symfony-content">{{ code|raw }}</div>
         </div>
     {% endif %}
-{% endblock %}
+</body>

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "6705632fd47ee7d4263788414b4f6d0b",
+    "hash": "c67149a89be7a7cccf1e6ac8463f98b8",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -682,6 +682,17 @@
                 "orm"
             ],
             "time": "2013-11-12 12:40:13"
+        },
+        {
+            "name": "fontawesome/fontawesome",
+            "version": "3.0.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/FortAwesome/Font-Awesome/archive/v3.0.2.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "library"
         },
         {
             "name": "incenteev/composer-parameter-handler",
