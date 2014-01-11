@@ -26,6 +26,8 @@ class AppKernel extends Kernel
         }
 
         $bundles[] = new DC\CRMBundle\DCCRMBundle();
+        $bundles[] = new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle();
+        $bundles[] = new Knp\Bundle\MenuBundle\KnpMenuBundle();
 
         return $bundles;
     }
