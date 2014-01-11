@@ -1,7 +1,27 @@
 {% extends "DCCRMBundle::layout.html.twig" %}
 
 {% block body %}
-    <h1>Account list</h1>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Search <a href="{{ path('account_new') }}"><i class='fa fa-search-circle'></i></a></h3>
+    </div>
+    
+    <div class="panel-body">
+
+    </div>
+</div>
+             
+
+
+<div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Accounts <a href="{{ path('account_new') }}"><i class='fa fa-plus-circle'></i></a></h3>
+            </div>
+            <div class="panel-body">
+             
+
+    
 
     <table class="records_list">
         <thead>
@@ -26,26 +46,16 @@
                 <td>{{ entity.description }}</td>
                 <td>{{ entity.industry }}</td>
                 <td>{{ entity.emailAddress }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('account_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('account_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                <td>         
+                   <a href="{{ path('account_edit', { 'id': entity.id }) }}"><i class='fa fa-pencil-square'></i></a>
+                   <a href="{{ path('account_show', { 'id': entity.id }) }}"><i class='fa fa-share-square'></i></a>
+                   <a href="{{ path('account_show', { 'id': entity.id }) }}"><i class='fa fa-star-o'></i></a>
+                   <a href="{{ path('account_show', { 'id': entity.id }) }}"><i class='fa fa-trash-o' style='color:red;'></i></a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('account_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+    </div>
+          </div>
     {% endblock %}

@@ -1,33 +1,35 @@
-{% block head %}
-    <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
-    <link rel="stylesheet" href="{{ asset('bundles/acmedemo/css/demo.css') }}" />
-    <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet" media="screen">
-    <link rel="stylesheet" href="{{ asset('css/fontawesome.css') }}">
-  <!--[if IE 7]>
-  <link rel="stylesheet" href="{{ asset('css/fontawesome_IE7.css') }}">
-  <![endif]-->
+<html>
+    <head>
+    {% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+       
+        <link rel="stylesheet" href="{{ asset('bundles/dccrm/css/app.css') }}" />
+        <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}"  media="screen">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
 
-    <!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
-    {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
-    <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Include all JavaScripts, compiled by Assetic -->
-    <script src="{{ asset('/js/bootstrap.js') }}"></script>
-{% endblock %}
+        <link rel="stylesheet" href="{{ asset('/css/fontawesome.css') }}">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+          <!--[if IE 7]>
+          <link rel="stylesheet" href="{{ asset('css/fontawesome_IE7.css') }}">
+          <![endif]-->
 
-{% block title 'Demo Bundle' %}
-
-
+       {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+        <script src="https://code.jquery.com/jquery.js"></script>
+       
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    {% endblock %}
+</head>
 
 <body>
 
    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-      
-            <a class="navbar-brand" href="#">DC CRM</a>
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                {{ knp_menu_render('DCCRMBundle:Builder:mainMenu', { 'style': 'navbar', 'template': 'DCCRMBundle:Menu:knp_menu.html.twig' }) }}
-                {{ knp_menu_render('DCCRMBundle:Builder:userMenu', { 'style': 'navbar', 'template': 'DCCRMBundle:Menu:knp_menu.html.twig' }) }}
-            </div>  
+      <a class="navbar-brand" href="#"><i class='fa fa-globe'></i> DC CRM</a>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            {{ knp_menu_render('DCCRMBundle:Builder:mainMenu', { 'style': 'navbar', 'template': 'DCCRMBundle:Menu:knp_menu.html.twig' }) }}
+            {{ knp_menu_render('DCCRMBundle:Builder:userMenu', { 'style': 'navbar', 'template': 'DCCRMBundle:Menu:knp_menu.html.twig' }) }}
+        </div>  
     </nav>
     
     
@@ -37,14 +39,10 @@
         </div>
     {% endfor %}
 
-    <div class="block">
+    <div class="clear"></div>
+
+    <div id="content">
         {% block body %}{% endblock %}
     </div>
 
-    {% if code is defined %}
-        <h2>Code behind this page</h2>
-        <div class="block">
-            <div class="symfony-content">{{ code|raw }}</div>
-        </div>
-    {% endif %}
 </body>
