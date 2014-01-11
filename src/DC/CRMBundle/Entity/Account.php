@@ -3,7 +3,7 @@
 namespace DC\CRMBundle\Entity;
 
 use DC\CRMBundle\Entity\Company;
-
+use Doctrine\Common\Collections\ArrayCollection;
 
 class Account extends Company
 {
