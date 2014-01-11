@@ -14,13 +14,16 @@ class Builder extends ContainerAware
         $menu->setChildrenAttribute('style', 'display:inline-block;width:600px;');
  
         $menu->addChild('Home', array('route' => '_default'))
-            ->setAttribute('icon', 'icon-home');
+            ->setAttribute('icon', 'icon-home')
+            ->setAttribute('divider_append', true);
 
         $menu->addChild('Accounts', array('route' => 'account'))
-            ->setAttribute('icon', 'icon-list');
+            ->setAttribute('icon', 'icon-list')
+            ->setAttribute('divider_append', true);
  
         $menu->addChild('Contacts', array('route' => 'contact'))
-            ->setAttribute('icon', 'icon-group');
+            ->setAttribute('icon', 'icon-group')
+            ->setAttribute('divider_append', true);
 
         return $menu;
     }
