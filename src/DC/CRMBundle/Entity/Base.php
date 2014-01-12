@@ -2,7 +2,7 @@
 
 namespace DC\CRMBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use DC\CRMBundle\Entity\User;
 
 
 abstract class Base
@@ -10,6 +10,34 @@ abstract class Base
    
     protected $id;
     protected $name;
+    protected $user;
+    protected $dateEntered;
+    protected $dateModified;
+
+    public function getProperties()
+    {   
+        return get_object_vars($this);
+    }
+
+    public function getDateEntered()
+    {
+        return $this->dateEntered;
+    }
+
+    public function getDateModified()
+    {
+        return $this->dateModified;
+    }
+
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
+
+    public function getUser()
+    {
+        return $this->user;
+    }
 
     /**
      * Get id

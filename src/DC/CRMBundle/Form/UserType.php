@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class AccountType extends AbstractType
+class UserType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -16,12 +16,8 @@ class AccountType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('phoneOffice')
-            ->add('website')
-            ->add('description')
-            ->add('industry')
-            ->add('emailAddress')
-            ->add('user')
+            ->add('firstName')
+            ->add('lastName')
         ;
     }
     
@@ -31,7 +27,7 @@ class AccountType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'DC\CRMBundle\Entity\Account'
+            'data_class' => 'DC\CRMBundle\Entity\User'
         ));
     }
 
@@ -40,6 +36,6 @@ class AccountType extends AbstractType
      */
     public function getName()
     {
-        return 'dc_crmbundle_account';
+        return 'dc_crmbundle_user';
     }
 }

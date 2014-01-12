@@ -90,4 +90,8 @@ doctrine:
             default:
                 mappings:
                     DCCRMBundle: ~
-
+services:
+    metadata_manager:
+        class: DC\CRMBundle\Services\Metadata\MetadataManager
+    modules_helper:
+        class: DC\CRMBundle\Services\Modules\ModulesHelper

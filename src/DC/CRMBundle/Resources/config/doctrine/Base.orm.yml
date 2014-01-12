@@ -10,3 +10,9 @@ DC\CRMBundle\Entity\Base:
             type: string
             length: 255
             nullable: false
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id

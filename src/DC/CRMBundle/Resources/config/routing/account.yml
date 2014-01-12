@@ -1,30 +1,3 @@
-account:
-    pattern:  /
-    defaults: { _controller: "DCCRMBundle:Account:index" }
-
-account_show:
-    pattern:  /{id}/show
-    defaults: { _controller: "DCCRMBundle:Account:show" }
-
-account_new:
-    pattern:  /new
-    defaults: { _controller: "DCCRMBundle:Account:new" }
-
-account_create:
-    pattern:  /create
-    defaults: { _controller: "DCCRMBundle:Account:create" }
-    requirements: { _method: post }
-
-account_edit:
-    pattern:  /{id}/edit
-    defaults: { _controller: "DCCRMBundle:Account:edit" }
-
-account_update:
-    pattern:  /{id}/update
-    defaults: { _controller: "DCCRMBundle:Account:update" }
-    requirements: { _method: post|put }
-
-account_delete:
-    pattern:  /{id}/delete
-    defaults: { _controller: "DCCRMBundle:Account:delete" }
-    requirements: { _method: post|delete }
+accounts:
+    pattern:  /accounts
+    defaults: { _controller: "DCCRMBundle:Default:list" }

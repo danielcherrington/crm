@@ -14,9 +14,14 @@ class Account extends Company
     	$this->contacts = new ArrayCollection();
     }
 
+    public function getContacts()
+    {
+    	return $this->contacts;
+    }
+
     public function __toString()
 	{
-    	return $this->name;
+    	return (string) $this->name;
 	}
   
 }

@@ -1,0 +1,3 @@
+modules:
+	Accounts: account
+	Contacts: contact

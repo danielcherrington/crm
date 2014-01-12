@@ -17,11 +17,11 @@ class Builder extends ContainerAware
             ->setAttribute('icon', 'icon-home')
             ->setAttribute('divider_append', true);
 
-        $menu->addChild('Accounts', array('route' => 'account'))
-            ->setAttribute('icon', 'icon-list')
+        $menu->addChild('Accounts', array('route' => 'accounts'))
+            ->setAttribute('icon', 'icon-briefcase')
             ->setAttribute('divider_append', true);
  
-        $menu->addChild('Contacts', array('route' => 'contact'))
+        $menu->addChild('Contacts', array('route' => 'contacts'))
             ->setAttribute('icon', 'icon-group')
             ->setAttribute('divider_append', true);
 

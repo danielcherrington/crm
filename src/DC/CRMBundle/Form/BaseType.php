@@ -6,23 +6,29 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class AccountType extends AbstractType
+class BaseType extends AbstractType
 {
+
+    function __construct($entity)
+    {
+        $this->entity = $entity;
+    }
         /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('name')
-            ->add('phoneOffice')
-            ->add('website')
-            ->add('description')
-            ->add('industry')
-            ->add('emailAddress')
-            ->add('user')
-        ;
+
+        $properties = $this->entity->getProperties();
+
+        foreach($properties as $property => $value){
+            if(gettype($property) != "object" && $property != "id"){
+
+                //need to load the field vardefs here so we know which type of field to render
+                $builder->add($property);
+            }
+        }
     }
     
     /**
@@ -31,7 +37,7 @@ class AccountType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'DC\CRMBundle\Entity\Account'
+            'data_class' => get_class($this->entity)
         ));
     }
 
@@ -40,6 +46,6 @@ class AccountType extends AbstractType
      */
     public function getName()
     {
-        return 'dc_crmbundle_account';
+        return 'dc_crmbundle_base';
     }
 }

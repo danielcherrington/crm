@@ -24,3 +24,25 @@ table.records_list {
 table.records_list th{
     padding:5px;
 }
+
+table.records_list tr th{
+	background-color:#ccc;
+	color:#333;
+}
+
+table.records_list td{
+	padding:5px;
+	border-right:#eee 1px solid;
+}
+
+table.records_list tr {
+	background-color:#f7f7f7;
+	color:#333;
+	border-top:#ccc 1px solid;
+	border-bottom:#eee 1px solid;
+	
+}
+
+#search .form-control {
+	width:130px;
+}
