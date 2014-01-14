@@ -33,7 +33,7 @@ class DefaultController extends Controller
     	$em = $this->getDoctrine()->getManager();
 
         $records = $em->getRepository('DCCRMBundle:'.$entity_map[$module])->findAll();
-        $metadata = $this->getMetaData($module, "list");
+        $metadata = $this->get("metadata_manager")->getMetaData($module, "list");
 
 	    $form = $this->createFormBuilder();
 
@@ -92,7 +92,8 @@ class DefaultController extends Controller
     	$entity_map = $modulesHelper->getEntityMap();
 
         $entity = $em->getRepository('DCCRMBundle:'.$entity_map[$module])->find($id);
-        $metadata = $this->getMetaData($module, "show");
+        $metadata = $this->get("metadata_manager")->getMetaData($module, "show");
+
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find entity.');
@@ -184,13 +185,5 @@ class DefaultController extends Controller
         $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
-    }
-
-    private function getMetaData($module, $type)
-    {
-    	$file = __DIR__."/../Modules/".$module."/metadata/".$type.".defs.php";
-    	$manager = $this->get("metadata_manager");
-
-    	return $manager->getMetadata($file);
     }
 }
