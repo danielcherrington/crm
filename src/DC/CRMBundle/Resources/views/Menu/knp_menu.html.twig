@@ -96,7 +96,7 @@
     {%- set attributes = item.linkAttributes %}
     {%- set attributes = attributes|merge({'class': classes|join(' ')}) %}
     {%- set attributes = attributes|merge({'data-toggle': 'dropdown'}) %}
-    <a href="#"{{ macros.attributes(attributes) }}>
+    <a href="#"{{ macros.attributes(attributes) }} style="font-size:16px;float:left;padding-bottom:15px;padding-top:15px!important;">
         {% if item.attribute('icon') is not empty  %}
             <i class="{{ item.attribute('icon') }}"></i> 
         {% endif %}

@@ -5,7 +5,7 @@
         <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
        
         <link rel="stylesheet" href="{{ asset('bundles/dccrm/css/app.css') }}" />
-        <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}"  media="screen">
+        
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
         
@@ -45,5 +45,10 @@
     <div id="content">
         {% block body %}{% endblock %}
     </div>
+
+     <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+      <a class="navbar-brand" href="#"><i class='fa fa-globe'></i> DC CRM</a>
+        
+    </nav>
 
 </body>

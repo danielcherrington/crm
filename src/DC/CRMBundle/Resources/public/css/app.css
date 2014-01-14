@@ -1,8 +1,11 @@
 body {
-    font-size: 14px;
+    font-size: 12px!important;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
 }
 
+a:link, a:visited {
+	color:#333!important;
+}
 
 #content{
 
@@ -17,6 +20,14 @@ body {
     clear:both;
 }
 
+table.show-view tr {
+	border-bottom:#eee 1px solid;
+}
+
+table.show-view tr td {
+	padding:10px;
+}
+
 table.records_list {
     width:100%;
 }
@@ -26,23 +37,27 @@ table.records_list th{
 }
 
 table.records_list tr th{
-	background-color:#ccc;
+	background-color:#eee;
 	color:#333;
 }
 
 table.records_list td{
 	padding:5px;
-	border-right:#eee 1px solid;
+
 }
 
 table.records_list tr {
-	background-color:#f7f7f7;
+
 	color:#333;
-	border-top:#ccc 1px solid;
 	border-bottom:#eee 1px solid;
 	
 }
 
 #search .form-control {
 	width:130px;
+}
+
+td.field-label{
+	font-weight:bold;
+	color:#333;
 }

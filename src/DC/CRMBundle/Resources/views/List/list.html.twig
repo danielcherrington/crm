@@ -24,7 +24,8 @@
     <div class="panel-heading">
         <h3 class="panel-title">{{ module|capitalize }} 
             <a href="{{ path('_new', {'module': module}) }}">
-                <i class='fa fa-plus-circle'></i>
+                <i class='fa fa-plus-circle pull-right'></i>
+                
             </a>
         </h3>
     </div>
@@ -53,11 +54,21 @@
                                     </a>
                                 {% endif %}
                         {% endfor %}
-                        <td align="right">         
-                           <a href="{{ path('_edit', {'module': module, 'id': entity.id }) }}"><i class='fa fa-pencil-square'></i></a>
-                           <a href="{{ path('_show', {'module': module, 'id': entity.id }) }}"><i class='fa fa-share-square'></i></a>
-                           <a href="{{ path('_show', {'module': module, 'id': entity.id }) }}"><i class='fa fa-star-o'></i></a>
-                           <a href="{{ path('_show', {'module': module, 'id': entity.id }) }}"><i class='fa fa-trash-o' style='color:red;'></i></a>
+                        <td >     
+
+                            <div class="btn-group pull-right">
+                              <button type="button" class="btn btn-primary btn-sm"><i class='fa fa-pencil-square'></i> Edit</button>
+                              <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                              </button>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a href="#"><i class='fa fa-share-square'></i> View</a></li>
+                                <li><a href="#"><i class='fa fa-star-o'></i> Mark Favourite</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"><i class='fa fa-trash-o' style='color:red;'></i> Delete</a></li>
+                              </ul>
+                            </div>
                         </td>
                     </tr>
                 {% endfor %}
