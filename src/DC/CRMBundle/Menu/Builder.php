@@ -11,7 +11,7 @@ class Builder extends ContainerAware
        
         $menu = $factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav');
-        $menu->setChildrenAttribute('style', 'display:inline-block;width:600px;');
+        $menu->setChildrenAttribute('style', 'display:inline-block;width:800px;');
  
         $menu->addChild('Home', array('route' => '_default'))
             ->setAttribute('icon', 'icon-home')
@@ -25,6 +25,18 @@ class Builder extends ContainerAware
             ->setAttribute('icon', 'icon-group')
             ->setAttribute('divider_append', true);
 
+        $menu->addChild('Opportunities', array('route' => 'contacts'))
+            ->setAttribute('icon', 'icon-group')
+            ->setAttribute('divider_append', true);
+
+        $menu->addChild('Quotes', array('route' => 'contacts'))
+            ->setAttribute('icon', 'icon-group')
+            ->setAttribute('divider_append', true);
+
+        $menu->addChild('Calendar', array('route' => 'contacts'))
+            ->setAttribute('icon', 'icon-group')
+            ->setAttribute('divider_append', true);
+
         return $menu;
     }
 
@@ -32,6 +44,7 @@ class Builder extends ContainerAware
     {
         $menu = $factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav pull-right');
+
  
         /*
         You probably want to show user specific information such as the username here. That's possible! Use any of the below methods to do this.
