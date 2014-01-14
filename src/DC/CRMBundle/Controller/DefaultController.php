@@ -88,10 +88,11 @@ class DefaultController extends Controller
     {
     	$this->_module = $module;
         $em = $this->getDoctrine()->getManager();
-        $modulesHelper = $this->get("modules");
+        $modulesHelper = $this->get("modules_helper");
     	$entity_map = $modulesHelper->getEntityMap();
 
         $entity = $em->getRepository('DCCRMBundle:'.$entity_map[$module])->find($id);
+        $metadata = $this->getMetaData($module, "show");
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find entity.');
@@ -101,6 +102,7 @@ class DefaultController extends Controller
 
         return $this->render('DCCRMBundle:'.$module.':show.html.twig', array(
             'entity'      => $entity,
+            'metadata'    => $metadata,
             'module' 	=> $module,
             'delete_form' => $deleteForm->createView(),        ));
     }
