@@ -156,7 +156,37 @@ class DefaultController extends Controller
         ));
     }
 
-        /**
+    public function updateAction(Request $request, $module, $id)
+    {
+        $this->_module = $module;
+        $em = $this->getDoctrine()->getManager();
+        $modulesHelper = $this->get("modules_helper");
+        $entity_map = $modulesHelper->getEntityMap();
+
+        $entity = $em->getRepository('DCCRMBundle:'.$entity_map[$module])->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createEditForm($entity, $entity_map[$module]);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isValid()) {
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('_edit', array('module' => $this->_module, 'id' => $id)));
+        }
+
+        return $this->render('DCCRMBundle:'.$module.':edit.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
     * Creates a form to edit a Account entity.
     *
     * @param Account $entity The entity
@@ -166,8 +196,11 @@ class DefaultController extends Controller
     private function createEditForm($entity, $type)
     {
 
-    	$type = "DC\CRMBundle\Form\\".ucfirst($type)."Type";
-        $form = $this->createForm(new $type(), $entity, array(
+    	$type = "DC\CRMBundle\Form\\".ucfirst("base")."Type";
+        $typeObj = new $type($entity, $this->get("vardef_manager"));
+        $typeObj->setContainer($this->get('service_container'));
+
+        $form = $this->createForm($typeObj, $entity, array(
             'action' => $this->generateUrl('_update', array('module' => $this->_module, 'id' => $entity->getId())),
             'method' => 'PUT',
         ));

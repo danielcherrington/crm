@@ -2,11 +2,11 @@
 
 namespace DC\CRMBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use DC\CRMBundle\Form\ContainerAwareType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class BaseType extends AbstractType
+class BaseType extends ContainerAwareType
 {
     protected $entity;
     protected $vardef_manager;
@@ -31,10 +31,18 @@ class BaseType extends AbstractType
 
                 $field_defs = $vardefs[strtolower($this->entity->module)]["fields"][$property];
 
+                if($field_defs["type"] == "choice" && $field_defs["language_list"] == true) {
+
+                    $request = $this->container->get('request');
+                    $language = $request->getLocale();
+
+                    $field_defs["options"]["choice_list"] =  new ChoiceLists\LanguageChoiceList($this->entity->module, $language, $this->container->get("kernel"), $field_defs["list_name"]);
+                }
+
                 
-                if($field_defs["type"] != "relate"){
+                if($field_defs["type"] != "entity_multiple"){
                     //need to load the field vardefs here so we know which type of field to render
-                    $builder->add($property, $field_defs["type"]);
+                    $builder->add($property, $field_defs["type"], $field_defs["options"]);
                 }
             }
         }
