@@ -8,8 +8,8 @@ use DC\CRMBundle\Entity\Base;
 
 class Person extends Base
 {
-   private $firstName;
-   private $lastName;
+   protected $firstName;
+   protected $lastName;
 
     /**
      * Set firstName

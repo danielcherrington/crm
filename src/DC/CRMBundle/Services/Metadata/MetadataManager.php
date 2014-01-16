@@ -4,7 +4,6 @@ namespace DC\CRMBundle\Services\Metadata;
 
 class MetadataManager {
 	
-
 	private function _getMetadataFile($module, $type)
 	{
 		$file = __DIR__."/../../Modules/".$module."/metadata/".$type.".defs.php";

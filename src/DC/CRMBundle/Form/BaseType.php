@@ -8,10 +8,13 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class BaseType extends AbstractType
 {
+    protected $entity;
+    protected $vardef_manager;
 
-    function __construct($entity)
+    function __construct($entity, $vardef_manager)
     {
         $this->entity = $entity;
+        $this->vardef_manager = $vardef_manager;
     }
         /**
      * @param FormBuilderInterface $builder
@@ -21,12 +24,18 @@ class BaseType extends AbstractType
     {
 
         $properties = $this->entity->getProperties();
+        $vardefs = $this->vardef_manager->getVarDefs($this->entity->module);
 
         foreach($properties as $property => $value){
-            if(gettype($property) != "object" && $property != "id"){
+            if(gettype($property) != "object" && $property != "id" && $property != "module"){
 
-                //need to load the field vardefs here so we know which type of field to render
-                $builder->add($property);
+                $field_defs = $vardefs[strtolower($this->entity->module)]["fields"][$property];
+
+                
+                if($field_defs["type"] != "relate"){
+                    //need to load the field vardefs here so we know which type of field to render
+                    $builder->add($property, $field_defs["type"]);
+                }
             }
         }
     }

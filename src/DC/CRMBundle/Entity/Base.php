@@ -7,7 +7,6 @@ use DC\CRMBundle\Entity\User;
 
 abstract class Base
 {
-   
     protected $id;
     protected $name;
     protected $user;
@@ -19,15 +18,6 @@ abstract class Base
         return get_object_vars($this);
     }
 
-    public function getDateEntered()
-    {
-        return $this->dateEntered;
-    }
-
-    public function getDateModified()
-    {
-        return $this->dateModified;
-    }
 
     public function setUser(User $user)
     {
@@ -70,6 +60,31 @@ abstract class Base
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getDateModified()
+    {
+        return $this->dateModified;
+    }
+
+    public function setDateModified($dateModified)
+    {
+        $this->dateModified = $dateModified;
+    }
+
+    public function getDateEntered()
+    {
+        return $this->dateEntered;
+    }
+
+    public function setDateEntered($dateEntered)
+    {
+        $this->dateEntered= $dateEntered;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->name;
     }
 
 }

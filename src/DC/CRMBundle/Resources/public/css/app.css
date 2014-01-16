@@ -22,6 +22,7 @@ a:link, a:visited {
 
 table.show-view tr {
 	border-bottom:#eee 1px solid;
+	border-top:#eee 1px solid;
 }
 
 table.show-view tr td {
@@ -60,4 +61,5 @@ table.records_list tr {
 td.field-label{
 	font-weight:bold;
 	color:#333;
+	background-color:#f7f7f7;
 }

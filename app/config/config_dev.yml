@@ -96,3 +96,5 @@ services:
         class: DC\CRMBundle\Services\Metadata\MetadataManager
     modules_helper:
         class: DC\CRMBundle\Services\Modules\ModulesHelper
+    vardef_manager:
+        class: DC\CRMBundle\Services\Vardef\VardefManager

@@ -94,7 +94,6 @@ class DefaultController extends Controller
         $entity = $em->getRepository('DCCRMBundle:'.$entity_map[$module])->find($id);
         $metadata = $this->get("metadata_manager")->getMetaData($module, "show");
 
-
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find entity.');
         }
@@ -121,6 +120,35 @@ class DefaultController extends Controller
 
         $entity = new $class();
         $form   = $this->createCreateForm($entity, $entity_map[$module]);
+
+        return $this->render('DCCRMBundle:'.$module.':new.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        ));
+    }
+
+    /**
+     * Persists the entity submited from the new view.
+     *
+     */
+    public function createAction(Request $request, $module)
+    {
+        $this->_module = $module;
+        $modulesHelper = $this->get("modules_helper");
+        $class = $modulesHelper->getEntityClass($module);
+        $entity_map = $modulesHelper->getEntityMap();
+
+        $entity = new $class();
+        $form = $this->createCreateForm($entity, $entity_map[$module]);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('_show', array('module' => $module, 'id' => $entity->getId())));
+        }
 
         return $this->render('DCCRMBundle:'.$module.':new.html.twig', array(
             'entity' => $entity,
@@ -177,7 +205,7 @@ class DefaultController extends Controller
     private function createCreateForm($entity, $type)
     {
     	$type = "DC\CRMBundle\Form\\".ucfirst("base")."Type";
-        $form = $this->createForm(new $type($entity), $entity, array(
+        $form = $this->createForm(new $type($entity, $this->get("vardef_manager")), $entity, array(
             'action' => $this->generateUrl('_create', array('module' => $this->_module)),
             'method' => 'POST',
         ));

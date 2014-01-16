@@ -8,11 +8,11 @@ use DC\CRMBundle\Entity\Base;
 
 class Company extends Base
 {
-    private $phoneOffice;
-    private $website;
-    private $description;
-    private $industry;
-    private $emailAddress;
+    protected $phoneOffice;
+    protected $website;
+    protected $description;
+    protected $industry;
+    protected $emailAddress;
 
     public function setPhoneOffice($phoneOffice)
     {

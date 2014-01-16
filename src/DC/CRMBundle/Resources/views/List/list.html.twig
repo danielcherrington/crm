@@ -30,51 +30,53 @@
         </h3>
     </div>
     <div class="panel-body">
-        {% block list %}
-            <table class="records_list">
-                <thead>
-                    <tr>
-                        {% for header in metadata.headers %}
-                            <th width="{{ header.options.width }}"> {{ header.name|capitalize }} </th>
-                        {% endfor %}
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for entity in records %}
-                    <tr>
-                        {% for column in metadata.columns %}
-                            <td >
-                               
-                                {% if column.link %}
-                                    <a href="{{ path('_show', {'module': module, 'id': entity.id }) }}">
-                                {% endif %}
-                                {{ attribute(entity, column.name) }}</td>
-                                {% if column.link %}
-                                    </a>
-                                {% endif %}
-                        {% endfor %}
-                        <td >     
 
-                            <div class="btn-group pull-right">
-                              <button type="button" class="btn btn-primary btn-sm"><i class='fa fa-pencil-square'></i> Edit</button>
-                              <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                              </button>
-                              <ul class="dropdown-menu" role="menu">
-                                <li><a href="#"><i class='fa fa-share-square'></i> View</a></li>
-                                <li><a href="#"><i class='fa fa-star-o'></i> Mark Favourite</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#"><i class='fa fa-trash-o' style='color:red;'></i> Delete</a></li>
-                              </ul>
-                            </div>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        {% endblock %}
     </div>
+    {% block list %}
+        <table class="records_list table">
+            <thead>
+                <tr>
+                    {% for header in metadata.headers %}
+                        <th width="{{ header.options.width }}"> {{ header.name|capitalize }} </th>
+                    {% endfor %}
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in records %}
+                <tr>
+                    {% for column in metadata.columns %}
+                        <td >
+                           
+                            {% if column.link %}
+                                <a href="{{ path('_show', {'module': module, 'id': entity.id }) }}">
+                            {% endif %}
+                            {{ attribute(entity, column.name) }}</td>
+                            {% if column.link %}
+                                </a>
+                            {% endif %}
+                    {% endfor %}
+                    <td >     
+
+                        <div class="btn-group pull-right">
+                          <button type="button" class="btn btn-primary btn-sm"><i class='fa fa-pencil-square'></i> Edit</button>
+                          <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#"><i class='fa fa-share-square'></i> View</a></li>
+                            <li><a href="#"><i class='fa fa-star-o'></i> Mark Favourite</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i class='fa fa-trash-o' style='color:red;'></i> Delete</a></li>
+                          </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}
+
 </div>
 {% endblock %}

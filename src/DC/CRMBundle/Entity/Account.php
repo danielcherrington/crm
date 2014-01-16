@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class Account extends Company
 {
+    public $module = "Accounts";
+
     protected $contacts;
 
     public function __construct() 
@@ -19,9 +21,4 @@ class Account extends Company
     	return $this->contacts;
     }
 
-    public function __toString()
-	{
-    	return (string) $this->name;
-	}
-  
 }
