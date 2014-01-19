@@ -17,10 +17,11 @@ $var_defs["accounts"] = array(
 		),
 		"user" => array(
 			"name" => "name",
-			"type" => "entity",
+			"type" => "genemu_jqueryautocomplete_text",
 			"options" => array(
 				"class" => "DCCRMBundle:User",
-    			"property" => "name",
+    			"property" => "name",		
+    			"route_name" => "_ajaxget",
     		)
 		),
 		"dateEntered" => array(

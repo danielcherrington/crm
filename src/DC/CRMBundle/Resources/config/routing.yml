@@ -24,7 +24,9 @@ _delete:
     pattern:  /{module}/delete/{id}
     defaults: { _controller: "DCCRMBundle:Default:delete" }
     requirements: { _method: post|delete }
-
+_ajaxget:
+    pattern: /getentitiesajax/{module}
+    defaults: { _controller: "DCCRMBundle:Default:getEntitiesAjax" }
 
 
 DCCRMBundle_account:

@@ -4,22 +4,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
        
-        <link rel="stylesheet" href="{{ asset('bundles/dccrm/css/app.css') }}" />
-        
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
-        
+        {% block stylesheets %}
+          <link rel="stylesheet" href="{{ asset('bundles/dccrm/css/app.css') }}" />
+          <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+          <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+          <link rel="stylesheet" href="{{ asset('/css/fontawesome.css') }}">
+          <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+            <!--[if IE 7]>
+            <link rel="stylesheet" href="{{ asset('css/fontawesome_IE7.css') }}">
+            <![endif]-->
+        {% endblock %}
 
-        <link rel="stylesheet" href="{{ asset('/css/fontawesome.css') }}">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-          <!--[if IE 7]>
-          <link rel="stylesheet" href="{{ asset('css/fontawesome_IE7.css') }}">
-          <![endif]-->
+        {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
 
-       {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
-        <script src="https://code.jquery.com/jquery.js"></script>
-       
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+        {% block javascript %}
+          <script src="{{ asset('bundles/dccrm/js/jquery-ui/jquery-1.10.2.js') }}"></script>
+          <script src="{{ asset('bundles/dccrm/js/jquery-ui/ui/jquery-ui.js') }}"></script>
+          <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+        {% endblock %}
     {% endblock %}
 </head>
 

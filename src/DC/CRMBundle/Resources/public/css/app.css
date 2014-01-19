@@ -63,3 +63,8 @@ td.field-label{
 	color:#333;
 	background-color:#f7f7f7;
 }
+
+.view-header-buttons{
+	float:right;
+	margin-bottom:10px!important;
+}

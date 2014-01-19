@@ -4,6 +4,7 @@ namespace DC\CRMBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 // these import the "@Route" and "@Template" annotations
@@ -65,6 +66,7 @@ class DefaultController extends Controller
     	$entity_map = $modulesHelper->getEntityMap();
 
         $entity = $em->getRepository('DCCRMBundle:'.$entity_map[$module])->find($id);
+        $metadata = $this->get("metadata_manager")->getMetaData($module, "edit");
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find entity.');
@@ -76,6 +78,8 @@ class DefaultController extends Controller
         return $this->render('DCCRMBundle:'.$module.':edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
+            'module'    => $module,
+            'metadata'    => $metadata,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -186,6 +190,14 @@ class DefaultController extends Controller
         ));
     }
 
+    public function getEntitiesAjaxAction($module)
+    {
+        $data = array("test","test");
+
+        return new JsonResponse($data);
+
+    }
+
     /**
     * Creates a form to edit a Account entity.
     *
@@ -247,4 +259,6 @@ class DefaultController extends Controller
 
         return $form;
     }
+
+
 }

@@ -22,7 +22,6 @@ class BaseType extends ContainerAwareType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
         $properties = $this->entity->getProperties();
         $vardefs = $this->vardef_manager->getVarDefs($this->entity->module);
 
@@ -39,13 +38,16 @@ class BaseType extends ContainerAwareType
                     $field_defs["options"]["choice_list"] =  new ChoiceLists\LanguageChoiceList($this->entity->module, $language, $this->container->get("kernel"), $field_defs["list_name"]);
                 }
 
-                
                 if($field_defs["type"] != "entity_multiple"){
-                    //need to load the field vardefs here so we know which type of field to render
                     $builder->add($property, $field_defs["type"], $field_defs["options"]);
                 }
             }
         }
+
+        $builder->add("SAVE", "button");
+        $builder->add("DUPLICATE", "button");
+        $builder->add("DELETE", "button");
+
     }
     
     /**

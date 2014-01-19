@@ -31,6 +31,7 @@ monolog:
         #    level:  info
 
 assetic:
+    bundle: DCCRMBundle
     use_controller: true
     filters:
         less:
@@ -98,3 +99,5 @@ services:
         class: DC\CRMBundle\Services\Modules\ModulesHelper
     vardef_manager:
         class: DC\CRMBundle\Services\Vardef\VardefManager
+genemu_form:
+    autocomplete: ~
