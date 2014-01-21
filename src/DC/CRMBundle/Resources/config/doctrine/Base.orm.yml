@@ -10,6 +10,16 @@ DC\CRMBundle\Entity\Base:
             type: string
             length: 255
             nullable: false
+        date_entered:
+          type: datetime
+          gedmo:
+            timestampable:
+              on: create
+        date_modified:
+          type: datetime
+          gedmo:
+            timestampable:
+              on: update
     manyToOne:
         user:
             targetEntity: User

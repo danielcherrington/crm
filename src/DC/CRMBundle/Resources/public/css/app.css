@@ -3,12 +3,8 @@ body {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
 }
 
-a:link, a:visited {
-	color:#333!important;
-}
 
 #content{
-
     margin-top:70px;
     width:1200px;
     margin-left:auto;

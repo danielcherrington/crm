@@ -38,13 +38,15 @@ class BaseType extends ContainerAwareType
                     $field_defs["options"]["choice_list"] =  new ChoiceLists\LanguageChoiceList($this->entity->module, $language, $this->container->get("kernel"), $field_defs["list_name"]);
                 }
 
-                if($field_defs["type"] != "entity_multiple"){
+                $field_defs['options'] = array_merge($field_defs['options'], array("error_bubbling" => true));
+
+                if($field_defs["type"] != "entity_multiple" && $field_defs["render"]){
                     $builder->add($property, $field_defs["type"], $field_defs["options"]);
                 }
             }
         }
 
-        $builder->add("SAVE", "button");
+        $builder->add("SAVE", "submit");
         $builder->add("DUPLICATE", "button");
         $builder->add("DELETE", "button");
 

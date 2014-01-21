@@ -39,7 +39,7 @@
                     {% for header in metadata.headers %}
                         <th width="{{ header.options.width }}"> {{ header.name|capitalize }} </th>
                     {% endfor %}
-                    <th>Actions</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -59,17 +59,20 @@
                     <td >     
 
                         <div class="btn-group pull-right">
-                          <button type="button" class="btn btn-primary btn-sm"><i class='fa fa-pencil-square'></i> Edit</button>
-                          <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
-                          </button>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="#"><i class='fa fa-share-square'></i> View</a></li>
-                            <li><a href="#"><i class='fa fa-star-o'></i> Mark Favourite</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#"><i class='fa fa-trash-o' style='color:red;'></i> Delete</a></li>
-                          </ul>
+                            <button type="button" class="btn btn-default">
+                                <i class='fa fa-pencil-square'></i> 
+                                <a href='{{ module }}/edit/{{ entity.id}}'>Edit</a>
+                            </button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="height:34px;">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#"><i class='fa fa-share-square'></i> View</a></li>
+                                <li><a href="#"><i class='fa fa-star-o'></i> Mark Favourite</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"><i class='fa fa-trash-o' style='color:red;'></i> Delete</a></li>
+                            </ul>
                         </div>
                     </td>
                 </tr>

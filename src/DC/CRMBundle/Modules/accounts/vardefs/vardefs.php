@@ -8,46 +8,55 @@ $var_defs["accounts"] = array(
 			"options" => array(
 				"class" => "DCCRMBundle:Contact",
     			"property" => "name",
-    		)
+    		),
+    		"render" => true,
 		),
 		"name" => array(
 			"name" => "name",
 			"type" => "text",
-			"options" => array()
+			"options" => array(),
+			"render" => true,
 		),
 		"user" => array(
 			"name" => "name",
-			"type" => "genemu_jqueryautocomplete_text",
+			"type" => "entity",
 			"options" => array(
 				"class" => "DCCRMBundle:User",
-    			"property" => "name",		
-    			"route_name" => "_ajaxget",
-    		)
+    			"property" => "name"
+    		),
+    		"render" => true,
 		),
-		"dateEntered" => array(
-			"name" => "dateEntered",
+		"date_entered" => array(
+			"name" => "date_entered",
 			"type" => "date",
-			"options" => array()
+			"data_class" => "DateTime",
+			"options" => array(),
+			"render" => false,
 		),
-		"dateModified" => array(
-			"name" => "dateModified",
+		"date_modified" => array(
+			"name" => "date_modified",
 			"type" => "date",
-			"options" => array()
+			"data_class" => "DateTime",
+			"options" => array(),
+			"render" => false,
 		),
-		"phoneOffice" => array(
-			"name" => "phoneOffice",
+		"phone_office" => array(
+			"name" => "phone_office",
 			"type" => "text",
-			"options" => array()
+			"options" => array(),
+			"render" => true,
 		),
 		"website" => array(
 			"name" => "website",
 			"type" => "text",
-			"options" => array()
+			"options" => array(),
+			"render" => true,
 		),
 		"description" => array(
 			"name" => "description",
 			"type" => "text",
-			"options" => array()
+			"options" => array(),
+			"render" => true,
 		),
 		"industry" => array(
 			"name" => "industry",
@@ -56,12 +65,14 @@ $var_defs["accounts"] = array(
 			"list_name" => "industry_list",
 			"options" => array(
 
-			)
+			),
+			"render" => true,
 		),
-		"emailAddress" => array(
-			"name" => "emailAddress",
+		"email_address" => array(
+			"name" => "email_address",
 			"type" => "text",
-			"options" => array()
+			"options" => array(),
+			"render" => true,
 		),
 	)
 );

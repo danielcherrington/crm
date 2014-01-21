@@ -10,8 +10,8 @@ abstract class Base
     protected $id;
     protected $name;
     protected $user;
-    protected $dateEntered;
-    protected $dateModified;
+    protected $date_entered;
+    protected $date_modified;
 
     public function getProperties()
     {   
@@ -64,22 +64,22 @@ abstract class Base
 
     public function getDateModified()
     {
-        return $this->dateModified;
+        return $this->date_modified;
     }
 
     public function setDateModified($dateModified)
     {
-        $this->dateModified = $dateModified;
+        $this->date_modified = $dateModified;
     }
 
     public function getDateEntered()
     {
-        return $this->dateEntered;
+        return $this->date_entered;
     }
 
     public function setDateEntered($dateEntered)
     {
-        $this->dateEntered= $dateEntered;
+        $this->date_entered= $dateEntered;
     }
 
     public function __toString()

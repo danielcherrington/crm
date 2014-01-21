@@ -8,8 +8,8 @@ use DC\CRMBundle\Entity\Base;
 
 class Person extends Base
 {
-   protected $firstName;
-   protected $lastName;
+   protected $first_name;
+   protected $last_name;
 
     /**
      * Set firstName
@@ -19,7 +19,7 @@ class Person extends Base
      */
     public function setFirstName($firstName)
     {
-        $this->firstName = $firstName;
+        $this->first_name = $firstName;
 
         return $this;
     }
@@ -31,7 +31,7 @@ class Person extends Base
      */
     public function getFirstName()
     {
-        return $this->firstName;
+        return $this->first_name;
     }
     /**
      * Set firstName
@@ -41,7 +41,7 @@ class Person extends Base
      */
     public function setLastName($lastName)
     {
-        $this->lastName = $lastName;
+        $this->last_name = $lastName;
 
         return $this;
     }
@@ -53,6 +53,6 @@ class Person extends Base
      */
     public function getLastName()
     {
-        return $this->lastName;
+        return $this->last_name;
     }
 }

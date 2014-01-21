@@ -8,15 +8,15 @@ use DC\CRMBundle\Entity\Base;
 
 class Company extends Base
 {
-    protected $phoneOffice;
+    protected $phone_office;
     protected $website;
     protected $description;
     protected $industry;
-    protected $emailAddress;
+    protected $email_address;
 
     public function setPhoneOffice($phoneOffice)
     {
-        $this->phoneOffice = $phoneOffice;
+        $this->phone_office = $phoneOffice;
 
         return $this;
     }
@@ -28,7 +28,7 @@ class Company extends Base
      */
     public function getPhoneOffice()
     {
-        return $this->phoneOffice;
+        return $this->phone_office;
     }
 
     /**
@@ -108,7 +108,7 @@ class Company extends Base
      */
     public function setEmailAddress($emailAddress)
     {
-        $this->emailAddress = $emailAddress;
+        $this->email_address = $emailAddress;
 
         return $this;
     }
@@ -120,6 +120,6 @@ class Company extends Base
      */
     public function getEmailAddress()
     {
-        return $this->emailAddress;
+        return $this->email_address;
     }
 }

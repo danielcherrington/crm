@@ -27,37 +27,37 @@ $defs = array(
 		'id' => array(
 			'name' => 'id',
 			'options' => array(
-				'width' => '10%'
+				'width' => '15%'
 			)
 		), 
 		'name' => array(
 			'name' => 'name',
 			'options' => array(
-				'width' => '10%'
+				'width' => '15%'
 			),
 		),
 		'email' => array(
 			'name' => 'email',
 			'options' => array(
-				'width' => '10%'
+				'width' => '15%'
 			),
 		),
 		'industry' => array(
 			'name' => 'industry',
 			'options' => array(
-				'width' => '10%'
+				'width' => '15%'
 			)
 		),
 		'website' => array(
 			'name' => 'website',
 			'options' => array(
-				'width' => '10%'
+				'width' => '15%'
 			),
 		),
 		'user' => array(
 			'name' => 'user',
 			'options' => array(
-				'width' => '10%'
+				'width' => '15%'
 			),
 		),
 	),

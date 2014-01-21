@@ -9,7 +9,7 @@
           <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
           <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
           <link rel="stylesheet" href="{{ asset('/css/fontawesome.css') }}">
-          <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+          <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
             <!--[if IE 7]>
             <link rel="stylesheet" href="{{ asset('css/fontawesome_IE7.css') }}">
             <![endif]-->
@@ -21,16 +21,14 @@
           <script src="{{ asset('bundles/dccrm/js/jquery-ui/jquery-1.10.2.js') }}"></script>
           <script src="{{ asset('bundles/dccrm/js/jquery-ui/ui/jquery-ui.js') }}"></script>
           <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-
-
         {% endblock %}
     {% endblock %}
 </head>
 
 <body>
 
-   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <a class="navbar-brand" href="#"><i class='fa fa-globe'></i> DC CRM</a>
+   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <a class="navbar-brand" href="#">DC CRM</a>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             {{ knp_menu_render('DCCRMBundle:Builder:mainMenu', { 'style': 'navbar', 'template': 'DCCRMBundle:Menu:knp_menu.html.twig' }) }}
             {{ knp_menu_render('DCCRMBundle:Builder:userMenu', { 'style': 'navbar', 'template': 'DCCRMBundle:Menu:knp_menu.html.twig' }) }}

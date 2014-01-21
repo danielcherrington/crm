@@ -121,13 +121,16 @@ class DefaultController extends Controller
     	$modulesHelper = $this->get("modules_helper");
     	$class = $modulesHelper->getEntityClass($module);
     	$entity_map = $modulesHelper->getEntityMap();
+        $metadata = $this->get("metadata_manager")->getMetaData($module, "edit");
 
         $entity = new $class();
-        $form   = $this->createCreateForm($entity, $entity_map[$module]);
+        $editForm   = $this->createCreateForm($entity, $entity_map[$module]);
 
-        return $this->render('DCCRMBundle:'.$module.':new.html.twig', array(
+        return $this->render('DCCRMBundle:'.$module.':edit.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'module' => $module,
+            'metadata' => $metadata,
+            'edit_form' => $editForm->createView(),
         ));
     }
 
@@ -167,26 +170,27 @@ class DefaultController extends Controller
         $modulesHelper = $this->get("modules_helper");
         $entity_map = $modulesHelper->getEntityMap();
 
+        $metadata = $this->get("metadata_manager")->getMetaData($module, "edit");
         $entity = $em->getRepository('DCCRMBundle:'.$entity_map[$module])->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity, $entity_map[$module]);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('_edit', array('module' => $this->_module, 'id' => $id)));
+            return $this->redirect($this->generateUrl('_show', array('module' => $this->_module, 'id' => $id)));
         }
 
         return $this->render('DCCRMBundle:'.$module.':edit.html.twig', array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            'module'      => $module,
+            'metadata'    => $metadata,
+            'edit_form'   => $editForm->createView()
         ));
     }
 
@@ -216,8 +220,6 @@ class DefaultController extends Controller
             'action' => $this->generateUrl('_update', array('module' => $this->_module, 'id' => $entity->getId())),
             'method' => 'PUT',
         ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
@@ -250,7 +252,10 @@ class DefaultController extends Controller
     private function createCreateForm($entity, $type)
     {
     	$type = "DC\CRMBundle\Form\\".ucfirst("base")."Type";
-        $form = $this->createForm(new $type($entity, $this->get("vardef_manager")), $entity, array(
+        $typeObj = new $type($entity, $this->get("vardef_manager"));
+        $typeObj->setContainer($this->get('service_container'));
+
+        $form = $this->createForm($typeObj, $entity, array(
             'action' => $this->generateUrl('_create', array('module' => $this->_module)),
             'method' => 'POST',
         ));

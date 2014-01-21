@@ -3,10 +3,15 @@
 {% block body %}
 	<h3>{{ module|capitalize }}: {{ entity.name }} </h3>
 
-	<div class="view-header-buttons">	
-		{% for button in metadata.buttons %}
-			<button type="button" class="btn btn-primary">{{ button }}</button>
-		{% endfor %}	
+	<div class="view-header-buttons">
+	<a href="{{ path('_edit', {'module': module, 'id': entity.id })}}" class="btn btn-default">
+		{% trans %}LBL_BUTTON_EDIT{% endtrans %}
+	</a>
+	{% for button in metadata.buttons %}
+		{% if button is iterable %}
+			<button type="button" class="btn btn-primary" onclick="{{ button.click }}">{{ button.label }}</button>
+		{% endif %}
+	{% endfor %}
 	</div>
 
 	<table width="100%" class="show-view">
@@ -15,7 +20,14 @@
 			<tr>
 				{% for cell in row %}
 					<td class="field-label"> {{ cell.label|trans }} </td>
-					<td>{{ attribute(entity, cell.name) }}</td>
+					<td>
+						{% if attribute(entity, cell.name).timestamp is defined %}
+						    {{ attribute(entity, cell.name)|date('d/m/Y H:i') }}
+						{% else %}
+						    {{ attribute(entity, cell.name) }}
+						{% endif %}
+						
+					</td>
 				{% endfor %}
 			</tr>
 		{% endfor %}

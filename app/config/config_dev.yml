@@ -92,6 +92,10 @@ doctrine:
             default:
                 mappings:
                     DCCRMBundle: ~
+                filters:
+                    softdeleteable:
+                        class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
+                        enabled: true
 services:
     metadata_manager:
         class: DC\CRMBundle\Services\Metadata\MetadataManager
@@ -99,5 +103,16 @@ services:
         class: DC\CRMBundle\Services\Modules\ModulesHelper
     vardef_manager:
         class: DC\CRMBundle\Services\Vardef\VardefManager
+    gedmo.listener.softdeleteable:
+        class: Gedmo\SoftDeleteable\SoftDeleteableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
 genemu_form:
     autocomplete: ~
+stof_doctrine_extensions:
+    default_locale: en
+    orm:
+        default: 
+            timestampable: true

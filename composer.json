@@ -50,7 +50,8 @@
         "knplabs/knp-menu": "2.0.*@dev",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
         "fontawesome/fontawesome": "3.0.2",
-        "genemu/form-bundle": "2.2.*"
+        "genemu/form-bundle": "2.2.*",
+        "stof/doctrine-extensions-bundle": "~1.1@dev"
     },
     "scripts": {
         "post-install-cmd": [

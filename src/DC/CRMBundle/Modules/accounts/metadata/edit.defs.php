@@ -31,14 +31,20 @@ $defs = array(
 				'label' => 'LBL_USER',
 			),
 
-			'emailAddress' => array(
-				'name' => 'emailAddress',
+			'email_address' => array(
+				'name' => 'email_address',
 				'label' => 'LBL_INDUSTRY'
 			),
 
-			'phoneOffice' => array(
-				'name' => 'phoneOffice',
+			'phone_office' => array(
+				'name' => 'phone_office',
 				'label' => 'LBL_WEBSITE'
+			),
+		),
+		2 => array(
+			'description' => array(
+				'name' => 'description',
+				'label' => 'LBL_DESCRIPTION',
 			),
 		)
 	)

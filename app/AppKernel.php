@@ -29,6 +29,7 @@ class AppKernel extends Kernel
         $bundles[] = new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle();
         $bundles[] = new Knp\Bundle\MenuBundle\KnpMenuBundle();
         $bundles[] = new Genemu\Bundle\FormBundle\GenemuFormBundle();
+        $bundles[] = new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle();
 
         return $bundles;
     }

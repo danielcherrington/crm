@@ -26,14 +26,14 @@ $defs = array(
 			),
 		),
 		1 => array(
-			'name' => array(
-				'name' => 'name',
-				'label' => 'LBL_NAME',
+			'dateEntered' => array(
+				'name' => 'dateEntered',
+				'label' => 'LBL_DATE_ENTERED',
 			),
 
-			'industry' => array(
-				'name' => 'industry',
-				'label' => 'LBL_INDUSTRY'
+			'dateModified' => array(
+				'name' => 'dateModified',
+				'label' => 'LBL_DATE_MODIFIED'
 			),
 
 			'website' => array(

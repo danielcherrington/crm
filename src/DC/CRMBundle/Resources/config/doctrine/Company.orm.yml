@@ -1,7 +1,7 @@
 DC\CRMBundle\Entity\Company:
     type: mappedSuperclass
     fields:
-        phoneOffice:
+        phone_office:
             type: string
             length: 255
         website:
@@ -13,6 +13,6 @@ DC\CRMBundle\Entity\Company:
         industry:
             type: string
             length: 255
-        emailAddress:
+        email_address:
             type: string
             length: 255
