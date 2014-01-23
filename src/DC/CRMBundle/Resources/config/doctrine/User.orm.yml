@@ -1,3 +1,14 @@
 DC\CRMBundle\Entity\User:
     type: entity
     table: users
+    fields:
+        username:
+            type: string
+            length: 255
+        password:
+            type: string
+            length: 255
+        is_admin:
+            type: boolean
+        settings:
+            type: text

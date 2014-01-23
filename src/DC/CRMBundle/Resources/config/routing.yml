@@ -1,3 +1,10 @@
+login:
+    path:   /login
+    defaults:  { _controller: DCCRMBundle:Security:login }
+login_check:
+    path:   /login_check
+logout:
+    path: /logout
 _default:
     pattern:  /
     defaults: { _controller: DCCRMBundle:Default:index }

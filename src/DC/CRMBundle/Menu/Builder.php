@@ -73,7 +73,10 @@ class Builder extends ContainerAware
         $menu['User']->addChild('Edit profile', array('route' => '_default'))
             ->setAttribute('icon', 'icon-edit');
         $menu['User']->addChild('Administer', array('route' => '_default'))
-            ->setAttribute('icon', 'icon-cog');
+            ->setAttribute('icon', 'icon-cog')
+            ->setAttribute('divider_append', true);
+        $menu['User']->addChild('Logout', array('route' => 'logout'))
+            ->setAttribute('icon', 'icon-logout');
  
         return $menu;
     }

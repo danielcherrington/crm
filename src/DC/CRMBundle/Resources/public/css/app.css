@@ -64,3 +64,17 @@ td.field-label{
 	float:right;
 	margin-bottom:10px!important;
 }
+
+
+/**DASHBOARD**/
+
+.gridster ul li{
+
+	list-style:none;
+}
+
+.gridster ul li header{
+	
+
+	padding:10px;
+}

@@ -46,9 +46,9 @@ class BaseType extends ContainerAwareType
             }
         }
 
-        $builder->add("SAVE", "submit");
-        $builder->add("DUPLICATE", "button");
-        $builder->add("DELETE", "button");
+        $builder->add("SAVE", "submit", array("label" => "LBL_BUTTON_SAVE"));
+        $builder->add("DUPLICATE", "button", array("label" => "LBL_BUTTON_DUPLICATE"));
+        $builder->add("DELETE", "button", array("label" => "LBL_BUTTON_DELETE"));
 
     }
     

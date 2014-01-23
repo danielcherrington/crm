@@ -17,9 +17,11 @@ class DefaultController extends Controller
 
     public function indexAction()
     {
+        $dashboard = $this->get("dashboard_manager");
+
         return $this->render(
     		'DCCRMBundle:Default:index.html.twig',
-    		array("var" => "test")
+    		array("dashboard" => $dashboard)
 		);
     }
 
