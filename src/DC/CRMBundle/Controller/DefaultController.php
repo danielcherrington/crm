@@ -5,6 +5,7 @@ namespace DC\CRMBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 // these import the "@Route" and "@Template" annotations
@@ -23,6 +24,19 @@ class DefaultController extends Controller
     		'DCCRMBundle:Default:index.html.twig',
     		array("dashboard" => $dashboard)
 		);
+    }
+
+    public function ajaxAction($method = "", $params = "")
+    {
+        if(empty($method)){
+            $method = $this->get("request")->get("method");
+            $params = $this->get("request")->get("params");
+        }
+
+        $ajaxHelper = $this->get("ajax_helper");
+        $response = $ajaxHelper->execute($method, $params);
+
+        return new Response($response);
     }
 
     public function listAction($module)

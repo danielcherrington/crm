@@ -106,6 +106,9 @@ services:
     dashboard_manager:
         class: DC\CRMBundle\Services\DashboardManager
         arguments: [@security.context]
+    ajax_helper:
+        class: DC\CRMBundle\Services\AjaxHelper
+        arguments: [@dashboard_manager]
     listener.login:
         class: DC\CRMBundle\EventListener\SecurityListener
         arguments: [@security.context, @session]

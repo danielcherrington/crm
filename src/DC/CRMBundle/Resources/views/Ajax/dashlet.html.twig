@@ -1,0 +1,13 @@
+<li data-row="1" data-col="1" data-sizex="1" data-sizey="1" class="panel panel-default">
+    <header class="panel-heading">
+        <h3 class="panel-title pull-left">{{ dashlet.title }}</h3>
+        <span class="pull-right dashlet-icons">
+            {% for icon in dashlet.icons %}
+                <a href='{{ icon.link }}'><i class="{{ icon.class }}"></i></a> 
+            {% endfor %}
+        </span>
+        <div class="clearfix"></div>
+    </header>
+
+    {{ dashlet.content|raw }}
+</li>

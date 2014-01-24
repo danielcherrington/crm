@@ -25,7 +25,6 @@ class Dashlet implements DashletInterface {
 	public function getTemplate($type)
 	{	
 		return $type.".html.twig";
-
 	}
 
 	public function getDef(){

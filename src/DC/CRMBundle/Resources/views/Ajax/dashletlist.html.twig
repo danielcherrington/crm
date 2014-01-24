@@ -1,0 +1,28 @@
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">{{ title }} </h4>
+      </div>
+      <div class="modal-body">
+       {% for dashlet in dashlets %}
+          <div class="dashlet-item" data-dashlet="{{ dashlet.id }}">
+            <span class="pull-left" style="margin-right:15px">
+              <i class="fa-3x {{ dashlet.icon }}"></i>
+            </span>
+            <span class="pull-left" style="float:left;">
+              <h4>{{ dashlet.title }}</h4>
+              <div class="dashlet-item-description">
+                {{ dashlet.description }}
+              </div>
+            </span>
+            <div class="clearfix"></div>
+          </div>
+       {% endfor %}
+           <div class="clearfix"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->

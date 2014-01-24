@@ -1,34 +1,5 @@
-<html>
-    <head>
-    {% block head %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
-       
-        {% block stylesheets %}
-          <link rel="stylesheet" href="{{ asset('bundles/dccrm/css/app.css') }}" />
-          <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-          <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
-          <link rel="stylesheet" href="{{ asset('/css/fontawesome.css') }}">
-          <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-          <link rel="stylesheet" href="{{ asset('bundles/dccrm/js/gridster/dist/jquery.gridster.css') }}">
-            <!--[if IE 7]>
-            <link rel="stylesheet" href="{{ asset('css/fontawesome_IE7.css') }}">
-            <![endif]-->
-        {% endblock %}
-
-        {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
-
-        {% block javascript %}
-          <script src="{{ asset('bundles/dccrm/js/jquery-ui/jquery-1.10.2.js') }}"></script>
-          <script src="{{ asset('bundles/dccrm/js/jquery-ui/ui/jquery-ui.js') }}"></script>
-          <script src="{{ asset('bundles/dccrm/js/gridster/dist/jquery.gridster.js') }}"></script>
-          <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-        {% endblock %}
-    {% endblock %}
-</head>
-
-<body>
-
+{% extends "DCCRMBundle::bootstrap.html.twig" %}
+{% block htmlbody %}
    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <a class="navbar-brand" href="#">DC CRM</a>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -54,5 +25,4 @@
       <a class="navbar-brand" href="#"><i class='fa fa-globe'></i> DC CRM</a>
         
     </nav>
-
-</body>
+{% endblock %}

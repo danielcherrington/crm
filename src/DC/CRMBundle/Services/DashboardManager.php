@@ -12,6 +12,36 @@ class DashboardManager {
 	{
 		$this->context = $context;
 	}
+
+	public function getAvailableDashlets()
+	{
+		//static list - needs to be dynamic and extensible
+		$dashlets = array(
+			0 => array(
+				"id" => "list",
+				"title" => "List",
+				"description" => "List records from a module",
+				"type" => "list",
+				"icon" => "fa fa-list"
+			),
+			1 => array(
+				"id" => "chart",
+				"title" => "Chart",
+				"description" => "Dashlet to represent a data seried",
+				"type" => "chart",
+				"icon" => "fa fa-bar-chart-o"
+			),
+			2 => array(
+				"id" => "activity_stream",
+				"title" => "Activity Stream",
+				"description" => "Dashlet to list recent activity",
+				"type" => "activity_stream",
+				"icon" => "fa fa-bullhorn"
+			)
+		);
+
+		return $dashlets;
+	}
 	
 	private function _getUserSettings()
 	{

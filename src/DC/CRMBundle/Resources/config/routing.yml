@@ -5,30 +5,37 @@ login_check:
     path:   /login_check
 logout:
     path: /logout
+
+_ajax:
+    pattern: /ajax
+    defaults: { _controller: DCCRMBundle:Default:ajax }
+_ajax_argument:
+    pattern: /ajax/{method}/{params}
+    defaults: { _controller: DCCRMBundle:Default:ajax }
 _default:
     pattern:  /
     defaults: { _controller: DCCRMBundle:Default:index }
 _list:
-    pattern:  /{module}
+    pattern:  /ui/{module}
     defaults: { _controller: DCCRMBundle:Default:list}
 _new:
-    pattern:  /{module}/new
+    pattern:  /ui/{module}/new
     defaults: { _controller: DCCRMBundle:Default:new}
 _edit:
-    pattern:  /{module}/edit/{id}
+    pattern:  /ui/{module}/edit/{id}
     defaults: { _controller: DCCRMBundle:Default:edit}
 _create:
-    pattern:  /{module}/create
+    pattern:  /ui/{module}/create
     defaults: { _controller: DCCRMBundle:Default:create}
 _show:
-    pattern:  /{module}/show/{id}
+    pattern:  /ui/{module}/show/{id}
     defaults: { _controller: DCCRMBundle:Default:show }
 _update:
-    pattern:  /{module}/update/{id}
+    pattern:  /ui/{module}/update/{id}
     defaults: { _controller: "DCCRMBundle:Default:update" }
     requirements: { _method: post|put }
 _delete:
-    pattern:  /{module}/delete/{id}
+    pattern:  /ui/{module}/delete/{id}
     defaults: { _controller: "DCCRMBundle:Default:delete" }
     requirements: { _method: post|delete }
 _ajaxget:

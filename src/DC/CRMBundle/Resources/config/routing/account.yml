@@ -1,3 +1,3 @@
 accounts:
-    pattern:  /accounts
+    pattern:  /ui/accounts
     defaults: { _controller: "DCCRMBundle:Default:list" }

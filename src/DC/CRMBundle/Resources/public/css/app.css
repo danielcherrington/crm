@@ -69,12 +69,41 @@ td.field-label{
 /**DASHBOARD**/
 
 .gridster ul li{
-
 	list-style:none;
 }
 
 .gridster ul li header{
-	
-
 	padding:10px;
+}
+
+.dashlet-item-description{
+	width:185px;
+}
+
+.dashlet-item{
+	width:265px;
+	margin-right:5px;
+	margin-left:5px;
+	padding:10px;
+	border:#eee 1px solid;
+	border-radius:4px;
+	float:left;
+	margin-top:5px;
+	margin-bottom:5px;
+	height:70px;
+}
+
+.dashlet-item i{
+	margin-top:10px;
+}
+
+.dashlet-item h4{
+	margin-top:0px;
+	margin-bottom:7px;
+}
+
+.dashlet-item:hover{
+	background-color:#dff0d8;
+	cursor:pointer;
+	border-color:#d6e9c6;
 }

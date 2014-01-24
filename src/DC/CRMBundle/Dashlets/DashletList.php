@@ -6,7 +6,6 @@ class DashletList extends Dashlet {
 
 	protected $type = "list";
 
-
 	function getItems(){
 
 		//return an array of listitems based on the config

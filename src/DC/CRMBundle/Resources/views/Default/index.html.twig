@@ -3,23 +3,23 @@
 
 {% block body %}
 
+<script type="text/javascript" src="{{ asset('bundles/dccrm/js/dashboard-manager.js') }}"></script>
+
 <script>
 $(function(){ //DOM Ready
- 
-    $(".gridster ul").gridster({
-        widget_margins: [10, 10],
-        widget_base_dimensions: [380, 200],
-        draggable: {
-            handle: 'h3'
-        }
-    });
- 
+    DashboardManager.init();
 });
 </script>
 
+<!-- Modal -->
+<div class="modal fade" id="dashletSelect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  
+</div><!-- /.modal -->
 <h1><i class="icon-dashboard"></i> My Dashboard</h1>
+<button class="btn btn-default btn-med pull-right" id="add-dashlet">Add Dashlet</button>
+<div class="clearfix"></div>
 <div class="gridster">
-    <ul>
+    <ul id="dashboard">
         {% set dash = attribute(dashboard, "getDisplay")  %}
         {% for colkey, col in dash.columns %}
 
